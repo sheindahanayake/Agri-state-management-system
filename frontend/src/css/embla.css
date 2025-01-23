@@ -1,0 +1,46 @@
+/* embla.css */
+.embla {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .embla__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .embla__container {
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .embla__slide {
+    flex: 0 0 20%;
+    position: relative;
+    padding: 0;
+    transition: transform 2s, box-shadow 2s;
+  }
+  
+  .property-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 2s, box-shadow 2s;
+  }
+  
+  .property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .property-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
