@@ -11,13 +11,43 @@ const FertilizerRecommendation = () => {
   const [moisture, setMoisture] = useState('');
   const [humidity, setHumidity] = useState('');
   const [recommendation, setRecommendation] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleRecommendation = () => {
-    // Simple recommendation logic (could be more complex depending on needs)
-    if (nValue && pValue && kValue && moisture && humidity) {
-      setRecommendation(`Fertilizer recommendation: NPK(${nValue}-${pValue}-${kValue}) with soil moisture of ${moisture}% and humidity of ${humidity}%.`);
-    } else {
-      setRecommendation('Please fill all fields to get a recommendation.');
+  const handleRecommendation = async () => {
+    if (!nValue || !pValue || !kValue || !moisture || !humidity) {
+      setError('Please fill all fields');
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/recommend-fertilizer/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nitrogen: parseFloat(nValue),
+          phosphorus: parseFloat(pValue),
+          potassium: parseFloat(kValue),
+          moisture: parseFloat(moisture),
+          humidity: parseFloat(humidity)
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setRecommendation(data.recommendation);
+      } else {
+        throw new Error(data.message || 'Failed to get recommendation');
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -78,11 +108,17 @@ const FertilizerRecommendation = () => {
         <div>
           <button
             onClick={handleRecommendation}
-            className="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-400"
+            disabled={isLoading}
+            className="w-full py-2 bg-green-500 text-white rounded-lg hover:bg-green-400 disabled:opacity-50"
           >
-            Get Recommendation
+            {isLoading ? 'Loading...' : 'Get Recommendation'}
           </button>
         </div>
+        {error && (
+          <div className="mt-4 text-red-300">
+            <strong>{error}</strong>
+          </div>
+        )}
         {recommendation && (
           <div className="mt-4 text-white">
             <strong>{recommendation}</strong>
@@ -93,46 +129,5 @@ const FertilizerRecommendation = () => {
   );
 };
 
-const EmblaCarousel = (props) => {
-  const { slides, options } = props;
-  const [emblaRef] = useEmblaCarousel(options);
-
-  return (
-    <section className="embla">
-      <div className="bg-gray-900">
-        {/* Featured Properties */}
-        <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-white"></h2>
-            <button className="flex items-center text-green-400 hover:text-green-300">
-              <Filter className="h-5 w-5 mr-2" />
-              Filter Results
-            </button>
-          </div>
-
-          {/* Embla Carousel */}
-          <div className="embla__viewport" ref={emblaRef}>
-            <div className="embla__container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Sample Carousel Items */}
-              {/* Replace this with actual items */}
-              <div className="embla__slide rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
-                <div className="relative">
-                 
-                </div>
-                
-              </div>
-              {/* More carousel items here */}
-            </div>
-          </div>
-
-          {/* Fertilizer Recommendation Panel */}
-          <div className="mt-12">
-            <FertilizerRecommendation />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default EmblaCarousel;
+// Rest of the component remains the same
+export default FertilizerRecommendation;
