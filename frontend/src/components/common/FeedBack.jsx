@@ -4,27 +4,31 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "John Adams",
-    feedback: "The fertilizer recommendations I received were spot on. My crops have never looked healthier! I highly recommend this service for any farmer.",
-    location: "Kansas, USA",
+    name: "Sam Johnson, Senior Research Scientist",
+    feedback: "The fertilizer recommendation system has significantly improved our efficiency in creating tailored solutions for different soil types. The accuracy of nutrient requirements for various plant species has been on point, and the system integrates well with our lab's data. However, I would recommend adding a feature that allows for more detailed input on soil pH and moisture levels, as these can greatly impact fertilizer efficiency."
+
+,
+    location: " GreenTech Labs, Soil Science Division",
     rating: 5,
-    image: "/src/assets/images/man-1.jpg",
+    image: "/src/assets/images/people 1.jpg",
   },
   {
     id: 2,
-    name: "Emily Smith",
-    feedback: "I was struggling to find the right fertilizer for my garden, but the recommendations I got here were amazing. The results are visible in just a few weeks.",
-    location: "Texas, USA",
+    name: " Mark Thompson, Laboratory Operations Manager",
+    feedback: "Overall, I’m impressed with how easy it is to use the fertilizer recommendation system. It has streamlined the process for our team, and the recommendations are usually quite precise. That said, some of the suggestions for organic fertilizers could benefit from more customizable options, as certain organic products are more suitable for specific regions or farming methods.",
+
+
+    location: "AgriChem Research Institute, Fertilizer Optimization Unit",
     rating: 5,
-    image: "/src/assets/images/man-2.jpg",
+    image: "/src/assets/images/people 2.jpg",
   },
   {
     id: 3,
-    name: "David Brown",
-    feedback: "Great experience! The system analyzed my soil and provided a detailed fertilizer plan. My yields have increased significantly this season.",
-    location: "Florida, USA",
+    name: " Emily Davis, Research Laboratory Assistant Manager",
+    feedback: "The system is great for quickly narrowing down the best fertilizers for a given crop, but I’ve noticed that some recommendations tend to focus too much on generic blends. We need more insights into specialized fertilizers for niche crops like berries or exotic plants. A more comprehensive database of lesser-known fertilizers would be a great addition to improve overall accuracy and usefulness.",
+    location: "EcoFarm Labs, Plant Nutrition Research Center",
     rating: 4,
-    image: "/src/assets/images/man-3.jpg",
+    image: "/src/assets/images/people 3.jpg",
   },
 ];
 

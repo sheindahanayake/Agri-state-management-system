@@ -4,7 +4,7 @@ import fertilizerFilter from "./common/fertilizerFilter";
 import Recommendation from "./common/Recommendation";
 import FeedBack from "./common/FeedBack";
 import Layout from "./common/Layout";
- 
+import AboutUs from "./common/AboutUs";
 import ChatBox from "./common/ChatBox";
 
 
@@ -19,7 +19,7 @@ const HomePage = () => {
 
             
              
-              <Recommendation />
+              
 
               
               <fertilizerFilter />
@@ -27,14 +27,13 @@ const HomePage = () => {
           
       
 
-        {/*Chat Box */}
-        <ChatBox/>
+        
 
         {/*Customer Feed back */}
         <FeedBack />
 
         
-        
+        <AboutUs />
       </Layout>
     </div>
   );

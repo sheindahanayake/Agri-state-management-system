@@ -4,12 +4,13 @@ import AboutUs from './common/AboutUs'
 import ChatBox from './common/ChatBox'
 
 
+
 function AboutPage() {
   return (
     <>
     <Layout>
         <AboutUs/>
-        <ChatBox/>
+        
 
     </Layout>
     </>

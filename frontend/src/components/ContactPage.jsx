@@ -9,7 +9,7 @@ function ContactPage() {
   return (
     <>
     <Layout>
-        <ChatBox/>
+        
         <Hero/>
         <Contact/>
         <AboutUs/>

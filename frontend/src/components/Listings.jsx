@@ -16,7 +16,7 @@ const Listings = () => {
               <Recommendation />
 
               {/* Property Type Filter */}
-              <PropertyFilter />
+              
             
           
         

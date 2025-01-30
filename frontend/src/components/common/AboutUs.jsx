@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Award, Clock, TrendingUp } from 'lucide-react';
+import Header from './Header';
 
 const AboutUs = () => {
   return (
@@ -55,7 +56,7 @@ const AboutUs = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-green-400 mb-2">150+</div>
-              <div className="text-gray-300">farmers</div>
+              <div className="text-gray-300">Labs</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-green-400 mb-2">2000+</div>
@@ -120,17 +121,34 @@ const AboutUs = () => {
             {[1, 2, 3, 4].map((member) => (
               <div key={member} className="text-center">
                 <div className="w-48 h-48 mx-auto rounded-full overflow-hidden mb-4">
-                  <img
-                    src="/src/assets/images/man-1.jpg"
-                    alt={`Team Member ${member}`}
-                    className="w-full h-full object-cover"
-                  />
+                <img
+              src={
+                member === 1
+                  ? "/src/assets/images/shein.jpeg"
+                  : member === 2
+                  ? "/src/assets/images/yasidu.jpeg"
+                  : member === 3
+                  ? "/src/assets/images/kusal.jpeg"
+                  : "/src/assets/images/kaven.jpeg"
+              }
+              alt={`Team Member ${member}`}
+              className="w-full h-full object-cover"
+            />
+                  
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Team Member {member}
-                </h3>
-                <p className="text-gray-300">Position</p>
-              </div>
+          <h3 className="text-xl font-bold text-white mb-2">
+            {member === 1 ? 'Shashen Dahanayake' : member === 2 ? 'Yasindu Pananwala' : member === 3 ? 'Kusal Dissanayake' : 'Kaveendra Vijayabahu'}
+          </h3>
+          <p className="text-gray-300">
+            {member === 1
+              ? 'Lead Fertilizer Recommendation Developer, AGRI STATE MANAGEMENT'
+              : member === 2
+              ? 'Fertilizer Algorithm Specialist, AGRI STATE MANAGEMENT'
+              : member === 3
+              ? 'Soil Data Integration Developer, AGRI STATE MANAGEMENT'
+              : 'Senior Agronomic System Developer, AGRI STATE MANAGEMENTs'}
+          </p>
+        </div>
             ))}
           </div>
         </div>

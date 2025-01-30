@@ -17,6 +17,13 @@ import Login from "./components/admin/Login";
 import { ToastContainer, toast } from "react-toastify";
 import Dashboard from "./components/admin/Dashboard";
 import { AdminRequireAuth } from "./components/admin/AdminRequireAuth";
+import PrivacyPage from "./components/Privacypage";
+import TermsPage from "./components/TermsPage";
+import CookiePage from "./components/CookiePage";
+;
+
+
+
 
 
 
@@ -41,6 +48,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/details" element={<DetailsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/cookie" element={<CookiePage />} />
+         
+         
+          
 
           {/*Admin Process */}
           <Route path="/admin/dashboard" element={

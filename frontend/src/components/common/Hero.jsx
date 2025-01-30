@@ -24,24 +24,11 @@ function Hero() {
             Optimize fertilizer use and minimize waste
             </p>
 
-            <div className="mt-8 max-w-3xl mx-auto">
-              <div className="flex items-center bg-gray-900 rounded-lg shadow-lg p-2 border border-gray-700">
-                <Search className="h-5 w-5 text-gray-400 ml-2" />
-                <input
-                  type="text"
-                  placeholder="Enter Fertilizer, Vegitable type, or keywords..."
-                  className="w-full px-4 py-2 bg-gray-900 text-white placeholder-gray-400 focus:outline-none"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-purple-700">
-                  Search
-                </button>
-              </div>
+           
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 }
